@@ -1,2 +1,2 @@
-## This Application Component Learn Lararvel 
+## This Application Component Learn Laravel 
 ## and Create a new Application Component
