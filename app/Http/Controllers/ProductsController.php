@@ -15,7 +15,8 @@ class ProductsController extends Controller
     {
         //
         $sections = sections::all();
-        return view('products.index', compact('sections'));
+        $products = products::all();
+        return view('products.index', compact('sections', 'products'));
     }
 
     /**
@@ -84,14 +85,28 @@ class ProductsController extends Controller
      */
     public function update(Request $request, products $products)
     {
-        //
+        $id = sections::where('section_name', $request->section_name)->first()->id;
+
+        $products = products::findOrFail($request->pro_id);
+        $products->update([
+            'product_name' => $request->product_name,
+            'description' => $request->description,
+            'section_id' => $id,
+        ]);
+
+        session()->flash('edit', 'تم التعديل بنجاح');
+        return redirect('/products');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(products $products)
+    public function destroy(Request $request)
     {
-        //
+        $products = products::findOrFail($request->pro_id);
+        $products->delete();
+        session()->flash('delete', 'تم الحذف بنجاح');
+        return redirect('/products');
     }
 }
+ 
