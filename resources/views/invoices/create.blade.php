@@ -123,8 +123,11 @@
                                 <select name="Rate_VAT" id="Rate_VAT" class="form-control" onchange="myFunction()">
                                     <!--placeholder-->
                                     <option value="" selected disabled>حدد نسبة الضريبة</option>
-                                    <option value=" 5%">5%</option>
+                                    <option value="5%">5%</option>
                                     <option value="10%">10%</option>
+                                    <option value="10%">15%</option>
+                                    <option value="10%">17%</option>
+
                                 </select>
                             </div>
 
@@ -156,8 +159,8 @@
                         <h5 class="card-title">المرفقات</h5>
 
                         <div class="col-sm-12 col-md-12">
-                            <input type="file" name="pic" class="dropify" accept=".pdf,.jpg, .png, image/jpeg, image/png"
-                                data-height="70" />
+                            <input type="file" name="pic" class="dropify"
+                                accept=".pdf,.jpg, .png, image/jpeg, image/png" data-height="70" />
                         </div><br>
 
                         <div class="d-flex justify-content-center">
@@ -209,7 +212,6 @@
         var date = $('.fc-datepicker').datepicker({
             dateFormat: 'yy-mm-dd'
         }).val();
-
     </script>
 
     <script>
@@ -236,7 +238,6 @@
             });
 
         });
-
     </script>
 
 
@@ -271,7 +272,6 @@
             }
 
         }
-
     </script>
 
 
