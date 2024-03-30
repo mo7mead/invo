@@ -47,6 +47,7 @@ require __DIR__ . '/auth.php';
 Route::middleware('auth')->group(function () {
     Route::get('invoices', [InvoicesController::class, 'index'])->name('invoices.index');
     Route::get('invoices/create', [InvoicesController::class, 'create'])->name('invoices.create');
+    Route::get('/section/{id}', [InvoicesController::class, 'getproducts']);
 
 });
 require __DIR__ . '/auth.php';

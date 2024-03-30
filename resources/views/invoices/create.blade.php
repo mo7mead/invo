@@ -46,9 +46,8 @@
                 <div class="card-body">
                     <form action="{{ route('invoices.create') }}" method="post" enctype="multipart/form-data"
                         autocomplete="off">
-                        {{ csrf_field() }}
+                        @csrf
                         {{-- 1 --}}
-
                         <div class="row">
                             <div class="col">
                                 <label for="inputName" class="control-label">رقم الفاتورة</label>
@@ -125,8 +124,8 @@
                                     <option value="" selected disabled>حدد نسبة الضريبة</option>
                                     <option value="5%">5%</option>
                                     <option value="10%">10%</option>
-                                    <option value="10%">15%</option>
-                                    <option value="10%">17%</option>
+                                    <option value="15%">15%</option>
+                                    <option value="17%">17%</option>
 
                                 </select>
                             </div>
@@ -166,8 +165,6 @@
                         <div class="d-flex justify-content-center">
                             <button type="submit" class="btn btn-primary">حفظ البيانات</button>
                         </div>
-
-
                     </form>
                 </div>
             </div>
@@ -273,6 +270,4 @@
 
         }
     </script>
-
-
 @endsection
