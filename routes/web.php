@@ -47,8 +47,8 @@ require __DIR__ . '/auth.php';
 Route::middleware('auth')->group(function () {
     Route::get('invoices', [InvoicesController::class, 'index'])->name('invoices.index');
     Route::get('invoices/create', [InvoicesController::class, 'create'])->name('invoices.create');
+    Route::post('/inavoces',  [InvoicesController::class, 'store'])->name('invoices.store');
     Route::get('/section/{id}', [InvoicesController::class, 'getproducts']);
-
 });
 require __DIR__ . '/auth.php';
 
@@ -79,6 +79,4 @@ Route::middleware('auth')->group(function () {
     Route::post('/product', [ProductsController::class, 'store'])->name('products.store');
     Route::put('/product', [ProductsController::class, 'update'])->name('products.update');
     Route::delete('/product', [ProductsController::class, 'destroy'])->name('products.destroy');
-
-
 });

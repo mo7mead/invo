@@ -41,12 +41,15 @@
     <!-- row -->
     <div class="row">
 
+        
+
         <div class="col-lg-12 col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('invoices.create') }}" method="post" enctype="multipart/form-data"
+                    <form action="{{ route('invoices.store') }}" method="POST" enctype="multipart/form-data"
                         autocomplete="off">
                         @csrf
+                        @method('POST')
                         {{-- 1 --}}
                         <div class="row">
                             <div class="col">
