@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\InvoicesDetailsController;
 
 
 
@@ -49,6 +50,7 @@ Route::middleware('auth')->group(function () {
     Route::get('invoices/create', [InvoicesController::class, 'create'])->name('invoices.create');
     Route::post('/inavoces',  [InvoicesController::class, 'store'])->name('invoices.store');
     Route::get('/section/{id}', [InvoicesController::class, 'getproducts']);
+    Route::get('/InvoicesDetails/{id}', [InvoicesDetailsController::class, 'index'])->name("invoices.show");
 });
 require __DIR__ . '/auth.php';
 

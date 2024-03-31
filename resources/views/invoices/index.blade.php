@@ -30,8 +30,8 @@
         <div class="col-xl-12">
             <div class="card mg-b-20">
                 <div class="card-header pb-0">
-                    <a href="{{route('invoices.create')}}" class="modal-effect btn btn-sm btn-primary" style="color:white"><i
-                            class="fas fa-plus"></i>&nbsp; اضافة فاتورة</a>
+                    <a href="{{ route('invoices.create') }}" class="modal-effect btn btn-sm btn-primary"
+                        style="color:white"><i class="fas fa-plus"></i>&nbsp; اضافة فاتورة</a>
                     <div class="d-flex justify-content-between">
                     </div>
 
@@ -49,25 +49,46 @@
                                     <th class="border-bottom-0">القسم</th>
                                     <th class="border-bottom-0">الخصم </th>
                                     <th class="border-bottom-0">نسبه الضريبه</th>
+                                    <th class="border-bottom-0">قيمه الضريبه</th>
                                     <th class="border-bottom-0">الاجمالي</th>
                                     <th class="border-bottom-0">الحاله</th>
                                     <th class="border-bottom-0">ملاحظات</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                    <td>$320,800</td>
-                                </tr>
+                                @php
+                                    $i = 0;
+                                @endphp
+                                @foreach ($invoices as $invoice)
+                                    @php
+                                        $i++;
+                                    @endphp
+                                    <tr>
+                                        <td>{{ $i }}</td>
+                                        <td>{{ $invoice->invoice_number }}</td>
+                                        <td>{{ $invoice->invoice_Date }}</td>
+                                        <td>{{ $invoice->Due_date }}</td>
+                                        <td>{{ $invoice->product }}</td>
+                                        <td><a
+                                                href="{{ url('InvoicesDetails') }}/{{ $invoice->id }}">{{ $invoice->section->section_name }}</a>
+                                        </td>
+                                        <td>{{ $invoice->Discount }}</td>
+                                        <td>{{ $invoice->Rate_VAT }}</td>
+                                        <td>{{ $invoice->Value_VAT }}</td>
+                                        <td>{{ $invoice->Total }}</td>
+                                        <td>
+                                            @if ($invoice->Value_Status == 1)
+                                                <span class="text-success">{{ $invoice->Status }}</span>
+                                            @elseif($invoice->Value_Status == 2)
+                                                <span class="text-danger">{{ $invoice->Status }}</span>
+                                            @else
+                                                <span class="text-warning">{{ $invoice->Status }}</span>
+                                            @endif
+
+                                        </td>
+                                        <td>{{ $invoice->note }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -18,7 +18,8 @@ class InvoicesController extends Controller
      */
     public function index(Request $request)
     {
-        return view('invoices.index');
+        $invoices = invoices::all();
+        return view('invoices.index', compact('invoices'));
     }
 
     /**

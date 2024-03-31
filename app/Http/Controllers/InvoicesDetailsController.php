@@ -12,7 +12,7 @@ class InvoicesDetailsController extends Controller
      */
     public function index()
     {
-        //
+        return view('invoices.show');
     }
 
     /**
@@ -42,9 +42,9 @@ class InvoicesDetailsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(invoices_details $invoices_details)
+    public function edit($id)
     {
-        //
+        view('invoices.show');
     }
 
     /**
