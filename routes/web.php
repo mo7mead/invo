@@ -50,7 +50,9 @@ Route::middleware('auth')->group(function () {
     Route::get('invoices/create', [InvoicesController::class, 'create'])->name('invoices.create');
     Route::post('/inavoces',  [InvoicesController::class, 'store'])->name('invoices.store');
     Route::get('/section/{id}', [InvoicesController::class, 'getproducts']);
-    Route::get('/InvoicesDetails/{id}', [InvoicesDetailsController::class, 'index'])->name("invoices.show");
+    Route::get('/InvoicesDetails/{id}', [InvoicesDetailsController::class, 'edit'])->name("invoices.show");
+    Route::get('View_file/{invoice_number}/{file_name}', [InvoicesDetailsController::class, 'open_file']);
+    Route::get('download/{invoice_number}/{file_name}', [InvoicesDetailsController::class, 'get_file']);
 });
 require __DIR__ . '/auth.php';
 
